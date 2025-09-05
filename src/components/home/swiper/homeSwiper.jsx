@@ -5,19 +5,18 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import LeftArrowIcon from '../../assets/icons/left-arrow-icon';
-import RightArrowIcon from '../../assets/icons/right-arrow-icon';
-import { COLOR } from '../../config/ui/colors';
+import GetHome from '../getHome';
+import { getCatalog } from '../../query/getQuey';
 
-const BannerSwiper = ({ data }) => {
+const HomeSwiper = () => {
+  const { isLoading, data } = getCatalog();
   return (
     <Box position="relative" mt={'20px'}>
       <Swiper
         spaceBetween={10}
-        slidesPerView={1}
+        slidesPerView={5}
         modules={[Navigation, Pagination, Autoplay]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
         navigation={{
           prevEl: '.custom-prev',
           nextEl: '.custom-next',
@@ -26,12 +25,12 @@ const BannerSwiper = ({ data }) => {
       >
         {data?.map((item) => (
           <SwiperSlide key={item.id}>
-            <img style={{ width: '100%' }} src={item.img} alt="" />
+            <GetHome {...item} />
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <IconButton
+      {/* <IconButton
         className="custom-prev"
         sx={{
           position: 'absolute',
@@ -59,9 +58,9 @@ const BannerSwiper = ({ data }) => {
         }}
       >
         <RightArrowIcon />
-      </IconButton>
+      </IconButton> */}
     </Box>
   );
 };
 
-export default BannerSwiper;
+export default HomeSwiper;
