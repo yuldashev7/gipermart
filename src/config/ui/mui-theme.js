@@ -31,6 +31,11 @@ export const theme = createTheme({
     lineHeight: '150%',
     color: '#333',
   },
+  price: {
+    fontWeight: 600,
+    fontSize: '18px',
+    color: '#333',
+  },
   oldPriceText: {
     fontWeight: 400,
     fontSize: '14px',

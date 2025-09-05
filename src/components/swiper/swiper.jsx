@@ -19,8 +19,8 @@ const BannerSwiper = ({ data }) => {
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation={{
-          prevEl: '.custom-prev',
-          nextEl: '.custom-next',
+          prevEl: '.custom-prevBanner',
+          nextEl: '.custom-nextBanner',
         }}
         loop={true}
       >
@@ -32,7 +32,7 @@ const BannerSwiper = ({ data }) => {
       </Swiper>
 
       <IconButton
-        className="custom-prev"
+        className="custom-prevBanner"
         sx={{
           position: 'absolute',
           top: '50%',
@@ -47,7 +47,7 @@ const BannerSwiper = ({ data }) => {
       </IconButton>
 
       <IconButton
-        className="custom-next"
+        className="custom-nextBanner"
         sx={{
           position: 'absolute',
           top: '50%',

@@ -26,18 +26,21 @@ const Footer = () => {
           <Stack direction={'row'} justifyContent={'space-between'}>
             <Stack>
               <img style={{ maxWidth: '100px' }} src={footerLogo} alt="img" />
-              <a
-                style={{
+              <Typography
+                component={'a'}
+                href="tel:998933746644"
+                sx={{
                   textDecoration: 'none',
                   fontWeight: '500',
                   fontSize: '21px',
                   color: '#333',
                   marginBottom: '2px',
+                  transition: 'color 0.2s ease',
+                  '&:hover': { color: 'red' },
                 }}
-                href="tel:998933746644"
               >
                 +99 893 374-66-44
-              </a>
+              </Typography>
               <Typography
                 fontWeight={'400'}
                 fontSize={'14px'}
@@ -46,18 +49,21 @@ const Footer = () => {
               >
                 справочная служба
               </Typography>
-              <a
-                style={{
+              <Typography
+                component={'a'}
+                href="tel:998933746644"
+                sx={{
                   textDecoration: 'none',
                   fontWeight: '500',
                   fontSize: '21px',
                   color: '#333',
                   marginBottom: '2px',
+                  transition: 'color 0.2s ease',
+                  '&:hover': { color: 'red' },
                 }}
-                href="tel:998902537753"
               >
                 +99 890 253-77-53
-              </a>
+              </Typography>
               <Typography
                 fontWeight={'400'}
                 fontSize={'14px'}
@@ -75,23 +81,33 @@ const Footer = () => {
                 Оставайтесь на связи
               </Typography>
               <Stack direction={'row'} gap={'16px'}>
-                <img
-                  style={{ maxWidth: '50px' }}
-                  src={facebookLogo}
-                  alt="Facebook"
-                />
-                <img style={{ maxWidth: '50px' }} src={okLogo} alt="Ok" />
-                <img style={{ maxWidth: '50px' }} src={vkLogo} alt="Vk" />
-                <img
-                  style={{ maxWidth: '50px' }}
-                  src={youTubeLogo}
-                  alt="You Tube"
-                />
-                <img
-                  style={{ maxWidth: '50px' }}
-                  src={instagramLogo}
-                  alt="Instagram"
-                />
+                <Link>
+                  <img
+                    style={{ maxWidth: '50px' }}
+                    src={facebookLogo}
+                    alt="Facebook"
+                  />
+                </Link>
+                <Link>
+                  <img style={{ maxWidth: '50px' }} src={okLogo} alt="Ok" />
+                </Link>
+                <Link>
+                  <img style={{ maxWidth: '50px' }} src={vkLogo} alt="Vk" />
+                </Link>
+                <Link>
+                  <img
+                    style={{ maxWidth: '50px' }}
+                    src={youTubeLogo}
+                    alt="You Tube"
+                  />
+                </Link>
+                <Link>
+                  <img
+                    style={{ maxWidth: '50px' }}
+                    src={instagramLogo}
+                    alt="Instagram"
+                  />
+                </Link>
               </Stack>
             </Stack>
             <Stack>
@@ -105,7 +121,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                Условия обмена и возврата
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Условия обмена и возврата
+                </Typography>
               </Link>
               <Link
                 style={{
@@ -117,7 +140,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                Каталог
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Каталог
+                </Typography>
               </Link>
               <Link
                 style={{
@@ -129,7 +159,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                О компании
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  О компании
+                </Typography>
               </Link>
               <Link
                 style={{
@@ -141,7 +178,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                Контакты
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Контакты
+                </Typography>
               </Link>
               <Link
                 style={{
@@ -153,7 +197,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                Доставка
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Доставка
+                </Typography>
               </Link>
               <Link
                 style={{
@@ -164,7 +215,14 @@ const Footer = () => {
                   color: '#333',
                 }}
               >
-                Оплата
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Оплата
+                </Typography>
               </Link>
             </Stack>
             <Stack>
@@ -178,7 +236,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                Клиентам
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Клиентам
+                </Typography>
               </Link>
               <Link
                 style={{
@@ -190,7 +255,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                Личный кабинет
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Личный кабинет
+                </Typography>
               </Link>
               <Link
                 style={{
@@ -202,7 +274,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                Блог
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Блог
+                </Typography>
               </Link>
               <Link
                 style={{
@@ -214,7 +293,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                Обратная связь
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Обратная связь
+                </Typography>
               </Link>
             </Stack>
             <Stack>
@@ -228,7 +314,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                Информация
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Информация
+                </Typography>
               </Link>
               <Link
                 style={{
@@ -240,7 +333,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                Пользовательское соглашение
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Пользовательское соглашение
+                </Typography>
               </Link>
               <Link
                 style={{
@@ -252,7 +352,14 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                Политика конфиденциальности и оферта
+                <Typography
+                  sx={{
+                    transition: 'color 0.3s ease',
+                    '&:hover': { color: 'red' },
+                  }}
+                >
+                  Политика конфиденциальности и оферта
+                </Typography>
               </Link>
             </Stack>
           </Stack>

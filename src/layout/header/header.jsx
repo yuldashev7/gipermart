@@ -19,9 +19,12 @@ import BuyIcon from '../../assets/icons/buy-icon';
 import BannerSwiper from '../../components/swiper/swiper';
 import { getBanner } from '../data/query/getQuery';
 import { Link } from 'react-router-dom';
+import React from 'react';
+import UserDrawer from '../../components/user-modal/user-drawer';
 
 const Header = () => {
   const { data, isLoading } = getBanner();
+  const [userOpen, setUserOpen] = React.useState(false);
 
   if (isLoading)
     return (
@@ -157,7 +160,7 @@ const Header = () => {
 
             <Stack direction="row" alignItems="center" gap="32px">
               <Stack direction="column" alignItems="center" gap="4px">
-                <IconButton>
+                <IconButton onClick={() => setUserOpen(true)}>
                   <UserIcon />
                 </IconButton>
                 <Typography
@@ -169,6 +172,7 @@ const Header = () => {
                   Войти
                 </Typography>
               </Stack>
+              <UserDrawer open={userOpen} onClose={() => setUserOpen(false)} />
               <Stack direction="column" alignItems="center" gap="4px">
                 <IconButton>
                   <HeartIcon />

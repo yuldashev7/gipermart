@@ -7,19 +7,21 @@ import 'swiper/css/autoplay';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import GetHome from '../getHome';
 import { getCatalog } from '../../query/getQuey';
+import LeftShotArrow from '../../../assets/icons/left-shot-arrow';
+import RightShotArrow from '../../../assets/icons/right-shot-arrow';
 
 const HomeSwiper = () => {
-  const { isLoading, data } = getCatalog();
+  const { data } = getCatalog();
   return (
     <Box position="relative" mt={'20px'}>
       <Swiper
         spaceBetween={10}
         slidesPerView={5}
         modules={[Navigation, Pagination, Autoplay]}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         navigation={{
-          prevEl: '.custom-prev',
-          nextEl: '.custom-next',
+          prevEl: '.custom-prevHome',
+          nextEl: '.custom-nextHome',
         }}
         loop={true}
       >
@@ -30,35 +32,37 @@ const HomeSwiper = () => {
         ))}
       </Swiper>
 
-      {/* <IconButton
-        className="custom-prev"
+      <IconButton
+        className="custom-prevHome"
         sx={{
           position: 'absolute',
           top: '50%',
           left: '20px',
           transform: 'translateY(-50%)',
           zIndex: 10,
+          border: '2px solid gray',
           backgroundColor: '#fff',
           '&:hover': { backgroundColor: '#dddcdc' },
         }}
       >
-        <LeftArrowIcon />
+        <LeftShotArrow />
       </IconButton>
 
       <IconButton
-        className="custom-next"
+        className="custom-nextHome"
         sx={{
           position: 'absolute',
           top: '50%',
           right: '20px',
           transform: 'translateY(-50%)',
           zIndex: 10,
+          border: '2px solid gray',
           backgroundColor: '#fff',
           '&:hover': { backgroundColor: '#dddcdc' },
         }}
       >
-        <RightArrowIcon />
-      </IconButton> */}
+        <RightShotArrow />
+      </IconButton>
     </Box>
   );
 };

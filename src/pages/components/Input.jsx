@@ -7,6 +7,7 @@ const CustomeInput = ({
   placeholder,
   label,
   onChange,
+  withBorder = false,
   ...props
 }) => {
   return (
@@ -14,10 +15,14 @@ const CustomeInput = ({
       sx={{
         '& .MuiOutlinedInput-root': {
           '& fieldset': {
-            border: 'none',
+            border: withBorder
+              ? `1px solid ${COLOR['--m3-sys-light-outline']}`
+              : 'none',
           },
           '&:hover fieldset': {
-            border: 'none',
+            border: withBorder
+              ? `1px solid ${COLOR['--m3-sys-light-outline']}`
+              : 'none',
           },
           '&.Mui-focused fieldset': {
             borderColor: COLOR['--m3-sys-light-outline'],
