@@ -1,0 +1,247 @@
+import { Link, useParams } from 'react-router-dom';
+import { useGetPhone } from '../home/query/getPhones';
+import { toast } from 'react-toastify';
+import { Container, Rating, Skeleton, Stack, Typography } from '@mui/material';
+import { getComputer } from '../../components/home/computer/query/getComputer';
+
+const ProductDetail = () => {
+  const { data: phones, isLoading, error } = useGetPhone();
+  const { data: computers } = getComputer();
+  const { id } = useParams();
+
+  if (error) {
+    toast.error('Xatolik');
+  }
+
+  if (isLoading) {
+    return (
+      <Stack mb="50px" ml="20px">
+        <Skeleton variant="text" sx={{ fontSize: '1rem' }} />
+        <Skeleton variant="rectangular" width={300} height={435} />
+      </Stack>
+    );
+  }
+
+  const allProduct = [
+    ...(phones?.map((item) => ({ ...item, category: 'phone' })) || []),
+    ...(computers?.map((item) => ({ ...item, category: 'computer' })) || []),
+  ];
+  const product = allProduct.find((item) => String(item.id) === String(id));
+
+  if (!product) {
+    return toast.error('Maxsulot Topilmadi');
+  }
+
+  return (
+    <Container disableGutters>
+      <Stack
+        mt="80px"
+        direction="row"
+        justifyContent="space-between"
+        px="20px"
+        mb="20px"
+      >
+        {[
+          'Смартфоны и планшеты',
+          'Ноутбуки, планшеты и компьютеры',
+          'Техника для дома',
+          'Игры и развлечения',
+          'Телевизоры, Аудио-видео, Hi-Fi',
+          'Фото и видеотехника',
+        ].map((text, i) => (
+          <Link key={i} style={{ textDecoration: 'none' }}>
+            <Typography
+              fontWeight="400"
+              fontSize="16px"
+              lineHeight="150%"
+              color="#333"
+            >
+              {text}
+            </Typography>
+          </Link>
+        ))}
+      </Stack>
+
+      <Link
+        to="/"
+        style={{
+          marginLeft: '20px',
+          textDecoration: 'none',
+          fontWeight: '400',
+          fontSize: '15px',
+          lineHeight: '160%',
+          color: '#333',
+        }}
+      >
+        Главная
+      </Link>
+
+      <Stack
+        mt="24px"
+        pl="20px"
+        borderBottom="2px solid #ededed"
+        pb="16px"
+        maxWidth="1230px"
+        m="0 auto"
+        pt="20px"
+      >
+        <Stack direction="row" alignItems="center" gap="8px" ml="-20px">
+          <Typography
+            fontWeight="600"
+            fontSize="24px"
+            lineHeight="150%"
+            color="#333"
+          >
+            {product.title}
+          </Typography>
+          {product.rame && (
+            <Typography
+              fontWeight="600"
+              fontSize="24px"
+              lineHeight="150%"
+              color="#333"
+            >
+              {product.rame}
+            </Typography>
+          )}
+        </Stack>
+        <Stack direction="row" alignItems="center" gap="12px" ml="-20px">
+          <span style={{ marginTop: '18px' }}>
+            <Rating
+              name="half-rating"
+              defaultValue={0}
+              precision={0.5}
+              size="small"
+            />
+          </span>
+          <Typography
+            fontWeight="400"
+            fontSize="16px"
+            color="#76bc21"
+            mt="10px"
+          >
+            (0)
+          </Typography>
+        </Stack>
+      </Stack>
+
+      <Stack direction="row" mt="24px" mb="32px">
+        <img
+          style={
+            product.category === 'phone'
+              ? { maxWidth: '435px', width: '100%' }
+              : {
+                  maxHeight: '435px',
+                  objectFit: 'contain',
+                  borderRadius: '12px',
+                }
+          }
+          src={product.img}
+          alt={product.title}
+        />
+
+        <Stack ml="40px">
+          {product.category === 'phone' ? (
+            <>
+              <Typography
+                fontWeight="500"
+                fontSize="16px"
+                color="#333"
+                mb="8px"
+                mt="15px"
+              >
+                Объем памяти
+              </Typography>
+              <Typography
+                fontWeight="400"
+                fontSize="16px"
+                color="#333"
+                mb="24px"
+              >
+                {product.rame}
+              </Typography>
+
+              <Typography
+                fontWeight="500"
+                fontSize="18px"
+                color="#333"
+                mb="16px"
+              >
+                Характеристики
+              </Typography>
+
+              <Stack direction="row" gap="8px" mb="12px">
+                <Typography color="#999">Цвет:</Typography>
+                <Typography color="#333">{product.color}</Typography>
+              </Stack>
+
+              <Stack direction="row" gap="8px" mb="12px">
+                <Typography color="#999">Экран:</Typography>
+                <Typography color="#333">6.2"/2400x1080 Пикс</Typography>
+              </Stack>
+
+              <Stack direction="row" gap="8px" mb="12px">
+                <Typography color="#999">Оперативная память:</Typography>
+                <Typography color="#333">{product.rame}</Typography>
+              </Stack>
+
+              <Stack direction="row" gap="8px" mb="12px">
+                <Typography color="#999">Память:</Typography>
+                <Typography color="#333">128GB</Typography>
+              </Stack>
+
+              <Stack direction="row" gap="8px" mb="12px">
+                <Typography color="#999">Камеры:</Typography>
+                <Typography color="#333">64/12/12</Typography>
+              </Stack>
+
+              <Stack direction="row" gap="8px">
+                <Typography color="#999">Беспроводные интерфейсы:</Typography>
+                <Typography color="#333">NFC, Wi-Fi, Bluetooth 5.0</Typography>
+              </Stack>
+            </>
+          ) : (
+            <>
+              <Typography
+                fontWeight="500"
+                fontSize="18px"
+                color="#333"
+                mb="16px"
+                mt="15px"
+              >
+                Характеристики
+              </Typography>
+
+              <Stack direction="row" gap="8px" mb="12px">
+                <Typography color="#999">Бренд:</Typography>
+                <Typography color="#333">{product.brand}</Typography>
+              </Stack>
+
+              <Stack direction="row" gap="8px" mb="12px">
+                <Typography color="#999">frequency:</Typography>
+                <Typography color="#333">{product.display}</Typography>
+              </Stack>
+
+              <Stack direction="row" gap="8px" mb="12px">
+                <Typography color="#999">Разрешение:</Typography>
+                <Typography color="#333">{product.frequency}</Typography>
+              </Stack>
+
+              <Stack direction="row" gap="8px" mb="12px">
+                <Typography color="#999">Память:</Typography>
+                <Typography color="#333">{product.weight}</Typography>
+              </Stack>
+
+              <Stack direction="row" gap="8px" mb="12px">
+                <Typography color="#999">Процессор:</Typography>
+                <Typography color="#333">{product.security}</Typography>
+              </Stack>
+            </>
+          )}
+        </Stack>
+      </Stack>
+    </Container>
+  );
+};
+
+export default ProductDetail;

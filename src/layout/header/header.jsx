@@ -203,10 +203,6 @@ const Header = () => {
           </Stack>
         </Container>
       </Box>
-
-      <Box mt="80px">
-        <BannerSwiper data={data} />
-      </Box>
     </>
   );
 };
