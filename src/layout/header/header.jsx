@@ -18,11 +18,15 @@ import HeartIcon from '../../assets/icons/heart-icon';
 import BuyIcon from '../../assets/icons/buy-icon';
 import BannerSwiper from '../../components/swiper/swiper';
 import { getBanner } from '../data/query/getQuery';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 import UserDrawer from '../../components/user-modal/user-drawer';
 
 const Header = () => {
+  const navigate = useNavigate();
+  const shoppingPage = () => {
+    navigate('/cart');
+  };
   const { data, isLoading } = getBanner();
   const [userOpen, setUserOpen] = React.useState(false);
 
@@ -187,7 +191,7 @@ const Header = () => {
                 </Typography>
               </Stack>
               <Stack direction="column" alignItems="center" gap="4px">
-                <IconButton>
+                <IconButton onClick={shoppingPage}>
                   <BuyIcon />
                 </IconButton>
                 <Typography

@@ -1,10 +1,49 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useGetPhone } from '../home/query/getPhones';
 import { toast } from 'react-toastify';
-import { Container, Rating, Skeleton, Stack, Typography } from '@mui/material';
+import {
+  Container,
+  IconButton,
+  Rating,
+  Skeleton,
+  Stack,
+  Typography,
+} from '@mui/material';
 import { getComputer } from '../../components/home/computer/query/getComputer';
+import { COLOR } from '../../config/ui/colors';
+import { addProduct } from '../../store/product-reducer';
+import { useDispatch } from 'react-redux';
+import { loadState, saveState } from '../../config/data/sotage';
 
 const ProductDetail = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const addStore = () => {
+    if (!product) return;
+    const newPrice = Number(product.price.split(' ').join(''));
+    const newProduct = {
+      id: product.id,
+      title: product.title,
+      price: newPrice,
+      img: product.img,
+    };
+
+    const currentCard = loadState('cart') || [];
+    saveState('cart', [...currentCard, newProduct]);
+
+    dispatch(addProduct(newProduct));
+
+    if (newPrice) {
+      toast.success("Mahsulot Qo'shildi", {
+        autoClose: 2000,
+      });
+    } else {
+      toast.error("Mahsulot Qo'shishda Xatolik", {
+        autoClose: 2000,
+      });
+    }
+  };
+
   const { data: phones, isLoading, error } = useGetPhone();
   const { data: computers } = getComputer();
   const { id } = useParams();
@@ -55,6 +94,10 @@ const ProductDetail = () => {
               fontSize="16px"
               lineHeight="150%"
               color="#333"
+              sx={{
+                transition: 'color 0.3s ease',
+                '&:hover': { color: 'red' },
+              }}
             >
               {text}
             </Typography>
@@ -125,7 +168,7 @@ const ProductDetail = () => {
         </Stack>
       </Stack>
 
-      <Stack direction="row" mt="24px" mb="32px">
+      <Stack direction="row" mt="24px" mb="32px" justifyContent="space-between">
         <img
           style={
             product.category === 'phone'
@@ -140,7 +183,7 @@ const ProductDetail = () => {
           alt={product.title}
         />
 
-        <Stack ml="40px">
+        <Stack ml="40px" flex={1}>
           {product.category === 'phone' ? (
             <>
               <Typography
@@ -238,6 +281,40 @@ const ProductDetail = () => {
               </Stack>
             </>
           )}
+        </Stack>
+
+        <Stack py={'20px'} alignItems="flex-end" mr={'50px'}>
+          <Typography
+            fontWeight={'800'}
+            fontSize={'30px'}
+            lineHeight={'150%'}
+            color="#333"
+          >
+            {product.price} Сум
+          </Typography>
+          <IconButton
+            onClick={() => addStore(product)}
+            style={{
+              backgroundColor: COLOR['--gipermart'],
+              borderRadius: '0',
+              paddingTop: '12px',
+              paddingBottom: '12px',
+              marginTop: '20px',
+              maxWidth: '230px',
+              width: '100%',
+            }}
+          >
+            <Stack>
+              <Typography
+                fontWeight={'400'}
+                fontSize={'16px'}
+                lineHeight={'100%'}
+                style={{ color: COLOR['--m3-sys-light-on-tertiary-container'] }}
+              >
+                Добавить в корзину
+              </Typography>
+            </Stack>
+          </IconButton>
         </Stack>
       </Stack>
     </Container>
