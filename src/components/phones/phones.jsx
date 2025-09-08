@@ -15,7 +15,6 @@ const Phones = ({
   id,
 }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const addStore = () => {
     const newPrice = Number(price.split(' ').join(''));

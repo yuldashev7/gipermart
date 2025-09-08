@@ -16,11 +16,12 @@ import SearchIcon from '../../assets/icons/search-icon';
 import UserIcon from '../../assets/icons/user-icon';
 import HeartIcon from '../../assets/icons/heart-icon';
 import BuyIcon from '../../assets/icons/buy-icon';
-import BannerSwiper from '../../components/swiper/swiper';
 import { getBanner } from '../data/query/getQuery';
 import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 import UserDrawer from '../../components/user-modal/user-drawer';
+import { useDebounce } from '@uidotdev/usehooks';
+import { searchParams } from './query/searchParams';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -29,6 +30,14 @@ const Header = () => {
   };
   const { data, isLoading } = getBanner();
   const [userOpen, setUserOpen] = React.useState(false);
+  const [search, setSearch] = React.useState('');
+  const debounceValue = useDebounce(search, 500);
+  const {
+    data: searchData,
+    isLoading: searchLoading,
+    error,
+  } = searchParams(search);
+  console.log(searchData);
 
   if (isLoading)
     return (
@@ -146,6 +155,7 @@ const Header = () => {
               maxWidth={'600px'}
               width={'100%'}
               ml={'32px'}
+              position={'relative'}
             >
               <label
                 style={{
@@ -157,9 +167,40 @@ const Header = () => {
                   border: `1px solid ${COLOR['--m3-sys-light-outline']}`,
                 }}
               >
-                <CustomeInput placeholder="Поиск" />
+                <CustomeInput
+                  placeholder="Поиск"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
                 <SearchIcon />
               </label>
+              {search.length > 1 ? (
+                <Stack
+                  style={{
+                    position: 'absolute',
+                    border: `1px solid ${COLOR['--m3-sys-light-outline']}`,
+                    top: '50px',
+                    backgroundColor: '#fff',
+                    padding: '10px',
+                    width: '100%',
+                    borderBottomLeftRadius: '5px',
+                    borderBottomRightRadius: '5px',
+                  }}
+                >
+                  {searchData?.map((item) => (
+                    <Typography
+                      key={item.id}
+                      fontSize="16px"
+                      fontWeight="400"
+                      sx={{ color: COLOR['--m3-sys-light-on-background'] }}
+                    >
+                      {item.title}
+                    </Typography>
+                  ))}
+                </Stack>
+              ) : (
+                ''
+              )}
             </Stack>
 
             <Stack direction="row" alignItems="center" gap="32px">

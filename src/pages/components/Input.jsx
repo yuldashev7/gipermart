@@ -8,6 +8,7 @@ const CustomeInput = ({
   label,
   onChange,
   withBorder = false,
+  value,
   ...props
 }) => {
   return (
@@ -34,6 +35,7 @@ const CustomeInput = ({
       type={type}
       placeholder={placeholder}
       onChange={onChange}
+      value={value}
       {...props}
     />
   );

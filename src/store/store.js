@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import productReducer from './product-reducer';
-import { loadState, saveState } from '../config/data/sotage';
+import { saveState, loadState } from '../config/data/storage';
 import {
   createListenerMiddleware,
   isAnyOf,

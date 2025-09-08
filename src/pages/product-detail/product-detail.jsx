@@ -13,7 +13,7 @@ import { getComputer } from '../../components/home/computer/query/getComputer';
 import { COLOR } from '../../config/ui/colors';
 import { addProduct } from '../../store/product-reducer';
 import { useDispatch } from 'react-redux';
-import { loadState, saveState } from '../../config/data/sotage';
+import { saveState, loadState } from '../../config/data/storage';
 
 const ProductDetail = () => {
   const navigate = useNavigate();
