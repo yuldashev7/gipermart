@@ -20,6 +20,8 @@ import { getComputer } from '../../components/home/computer/query/getComputer';
 import GetComputer from '../../components/home/computer/computer';
 import { GetHomeComputer } from '../../components/home/computer/homeComputer/query/homeComputer';
 import HomeComputer from '../../components/home/computer/homeComputer/homeComputer';
+import { getBrand } from '../../components/home/brands/query/getBrand';
+import Brands from '../../components/home/brands/brands';
 
 const Home = () => {
   const { isLoading } = getCatalog();
@@ -28,6 +30,7 @@ const Home = () => {
   const { data: phoneData } = getPhoneTablet();
   const { data: computerData } = getComputer();
   const { data: HomeComputerData } = GetHomeComputer();
+  const { data: brandData } = getBrand();
 
   if (isLoading)
     return (
@@ -209,6 +212,13 @@ const Home = () => {
         >
           Популярные бренды
         </Typography>
+        <Grid container spacing={1} mb={'114px'} px={'20px'}>
+          {brandData?.map((item) => (
+            <Grid size={2} key={item.id}>
+              <Brands {...item} />
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </>
   );

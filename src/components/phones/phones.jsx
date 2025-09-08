@@ -22,9 +22,9 @@ const Phones = ({
     dispatch(addProduct(product));
 
     if (newPrice) {
-      toast.success("Mahsulot Qo'shildi");
+      toast.success('Товар добавлен');
     } else {
-      toast.error("Mahsulot Qo'shishda Xatolik");
+      toast.error('Ошибка при добавлении товара');
     }
   };
 

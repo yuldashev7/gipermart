@@ -17,11 +17,11 @@ const Shopping = ({ product, totalPrice }) => {
   const deleteProduct = () => {
     if (product?.id) {
       dispatch(removeProduct(product.id));
-      toast.success("Mahsulot O'chirildi", {
+      toast.success('Товар удалён', {
         autoClose: 2000,
       });
     } else {
-      toast.error('Xatolik yuz berdi', {
+      toast.error('Произошла ошибка', {
         autoClose: 2000,
       });
     }
@@ -75,6 +75,7 @@ const Shopping = ({ product, totalPrice }) => {
             >
               {formatter(product.userPrice)} Сум
             </Typography>
+
             <Stack
               direction={'row'}
               alignItems={'center'}

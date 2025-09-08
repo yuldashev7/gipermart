@@ -22,12 +22,15 @@ import React from 'react';
 import UserDrawer from '../../components/user-modal/user-drawer';
 import { useDebounce } from '@uidotdev/usehooks';
 import { searchParams } from './query/searchParams';
+import HeaderModal from '../components/headerModal';
 
 const Header = () => {
   const navigate = useNavigate();
   const shoppingPage = () => {
     navigate('/cart');
   };
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [openSearch, setOpenSearch] = React.useState(false);
   const { data, isLoading } = getBanner();
   const [userOpen, setUserOpen] = React.useState(false);
   const [search, setSearch] = React.useState('');
@@ -127,7 +130,7 @@ const Header = () => {
               />
             </Link>
 
-            <Button>
+            <Button onClick={() => setModalOpen(true)}>
               <Stack
                 direction="row"
                 alignItems="center"
@@ -137,6 +140,14 @@ const Header = () => {
                 py="10px"
                 pl="12px"
                 pr="30px"
+                sx={{
+                  animation: 'flash 1.4s infinite',
+                  '@keyframes flash': {
+                    '0%': { backgroundColor: COLOR['--gipermart'] },
+                    '50%': { backgroundColor: '#f9ad31' },
+                    '100%': { backgroundColor: COLOR['--gipermart'] },
+                  },
+                }}
               >
                 <HeaderHamburger />
                 <Typography
@@ -148,7 +159,7 @@ const Header = () => {
                 </Typography>
               </Stack>
             </Button>
-
+            <HeaderModal open={modalOpen} onClose={() => setModalOpen(false)} />
             <Stack
               direction="row"
               alignItems="center"
@@ -170,11 +181,14 @@ const Header = () => {
                 <CustomeInput
                   placeholder="Поиск"
                   value={search}
-                  onChange={(e) => setSearch(e.target.value)}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    setOpenSearch(true);
+                  }}
                 />
                 <SearchIcon />
               </label>
-              {search.length > 1 ? (
+              {search.length > 1 && (
                 <Stack
                   style={{
                     position: 'absolute',
@@ -187,19 +201,25 @@ const Header = () => {
                     borderBottomRightRadius: '5px',
                   }}
                 >
-                  {searchData?.map((item) => (
-                    <Typography
-                      key={item.id}
-                      fontSize="16px"
-                      fontWeight="400"
-                      sx={{ color: COLOR['--m3-sys-light-on-background'] }}
-                    >
-                      {item.title}
-                    </Typography>
-                  ))}
+                  {openSearch &&
+                    searchData?.map((item) => (
+                      <Link
+                        key={item.id}
+                        to={`/product/${item.id}`}
+                        style={{ textDecoration: 'none' }}
+                        onClick={() => setOpenSearch(false)}
+                      >
+                        <Typography
+                          key={item.id}
+                          fontSize="16px"
+                          fontWeight="400"
+                          sx={{ color: COLOR['--m3-sys-light-on-background'] }}
+                        >
+                          {item.title}
+                        </Typography>
+                      </Link>
+                    ))}
                 </Stack>
-              ) : (
-                ''
               )}
             </Stack>
 
