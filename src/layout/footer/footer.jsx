@@ -5,7 +5,7 @@ import okLogo from '../../assets/svg/ok.svg';
 import vkLogo from '../../assets/svg/vk.svg';
 import youTubeLogo from '../../assets/svg/you-tube.svg';
 import instagramLogo from '../../assets/svg/instagram.svg';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import payMeLogo from '../../assets/svg/payme.svg';
 import uzCardLogo from '../../assets/svg/uzcard.svg';
 import humoLogo from '../../assets/svg/humo.svg';
@@ -149,7 +149,8 @@ const Footer = () => {
                   Каталог
                 </Typography>
               </Link>
-              <Link
+              <NavLink
+                to={'/company'}
                 style={{
                   textDecoration: 'none',
                   fontWeight: '400',
@@ -159,15 +160,18 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                <Typography
-                  sx={{
-                    transition: 'color 0.3s ease',
-                    '&:hover': { color: 'red' },
-                  }}
-                >
-                  О компании
-                </Typography>
-              </Link>
+                {({ isActive }) => (
+                  <Typography
+                    sx={{
+                      color: isActive ? 'red' : '',
+                      transition: 'color 0.3s ease',
+                      '&:hover': { color: 'red' },
+                    }}
+                  >
+                    О компании
+                  </Typography>
+                )}
+              </NavLink>
               <Link
                 style={{
                   textDecoration: 'none',
@@ -264,7 +268,8 @@ const Footer = () => {
                   Личный кабинет
                 </Typography>
               </Link>
-              <Link
+              <NavLink
+                to={'/blog'}
                 style={{
                   textDecoration: 'none',
                   fontWeight: '400',
@@ -274,15 +279,18 @@ const Footer = () => {
                   marginBottom: '16px',
                 }}
               >
-                <Typography
-                  sx={{
-                    transition: 'color 0.3s ease',
-                    '&:hover': { color: 'red' },
-                  }}
-                >
-                  Блог
-                </Typography>
-              </Link>
+                {({ isActive }) => (
+                  <Typography
+                    sx={{
+                      color: isActive ? 'red' : '#333',
+                      transition: 'color 0.3s ease',
+                      '&:hover': { color: 'red' },
+                    }}
+                  >
+                    Блог
+                  </Typography>
+                )}
+              </NavLink>
               <Link
                 style={{
                   textDecoration: 'none',

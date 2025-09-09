@@ -8,6 +8,8 @@ import Cart from './pages/cart/cart';
 import NotFound from './pages/not-found/not-found';
 import Order from './pages/orders/order';
 import Category from './pages/home/category/category';
+import Company from './pages/company/company';
+import Blog from './pages/blog/blog';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="cart" element={<Cart />} />
           <Route path="order" element={<Order />} />
           <Route path="category/:name" element={<Category />} />
+          <Route path="company" element={<Company />} />
+          <Route path="blog" element={<Blog />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

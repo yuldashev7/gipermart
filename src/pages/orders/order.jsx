@@ -38,29 +38,95 @@ const Order = () => {
         bgcolor={'#fff'}
         py={'12px'}
       >
-        {[
-          'Смартфоны и планшеты',
-          'Ноутбуки, планшеты и компьютеры',
-          'Техника для дома',
-          'Игры и развлечения',
-          'Телевизоры, Аудио-видео, Hi-Fi',
-          'Фото и видеотехника',
-        ].map((text, i) => (
-          <Link key={i} style={{ textDecoration: 'none' }}>
-            <Typography
-              fontWeight="400"
-              fontSize="16px"
-              lineHeight="150%"
-              color="#333"
-              sx={{
-                transition: 'color 0.3s ease',
-                '&:hover': { color: 'red' },
-              }}
-            >
-              {text}
-            </Typography>
-          </Link>
-        ))}
+        <Link style={{ textDecoration: 'none' }}>
+          <Typography
+            fontWeight="400"
+            fontSize="16px"
+            lineHeight="150%"
+            color="#333"
+            sx={{
+              transition: 'color 0.3s ease',
+              '&:hover': { color: 'red' },
+            }}
+          >
+            Смартфоны и планшеты
+          </Typography>
+        </Link>
+
+        <Link style={{ textDecoration: 'none' }}>
+          <Typography
+            fontWeight="400"
+            fontSize="16px"
+            lineHeight="150%"
+            color="#333"
+            sx={{
+              transition: 'color 0.3s ease',
+              '&:hover': { color: 'red' },
+            }}
+          >
+            Ноутбуки, планшеты и компьютеры
+          </Typography>
+        </Link>
+
+        <Link style={{ textDecoration: 'none' }}>
+          <Typography
+            fontWeight="400"
+            fontSize="16px"
+            lineHeight="150%"
+            color="#333"
+            sx={{
+              transition: 'color 0.3s ease',
+              '&:hover': { color: 'red' },
+            }}
+          >
+            Техника для дома
+          </Typography>
+        </Link>
+
+        <Link style={{ textDecoration: 'none' }}>
+          <Typography
+            fontWeight="400"
+            fontSize="16px"
+            lineHeight="150%"
+            color="#333"
+            sx={{
+              transition: 'color 0.3s ease',
+              '&:hover': { color: 'red' },
+            }}
+          >
+            Игры и развлечения
+          </Typography>
+        </Link>
+
+        <Link style={{ textDecoration: 'none' }}>
+          <Typography
+            fontWeight="400"
+            fontSize="16px"
+            lineHeight="150%"
+            color="#333"
+            sx={{
+              transition: 'color 0.3s ease',
+              '&:hover': { color: 'red' },
+            }}
+          >
+            Телевизоры, Аудио-видео, Hi-Fi
+          </Typography>
+        </Link>
+
+        <Link style={{ textDecoration: 'none' }}>
+          <Typography
+            fontWeight="400"
+            fontSize="16px"
+            lineHeight="150%"
+            color="#333"
+            sx={{
+              transition: 'color 0.3s ease',
+              '&:hover': { color: 'red' },
+            }}
+          >
+            Фото и видеотехника
+          </Typography>
+        </Link>
       </Stack>
       <Stack direction={'row'}>
         <Stack width={'600px'} style={{ borderRight: '1px solid  #808080' }}>
