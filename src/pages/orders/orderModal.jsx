@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { COLOR } from '../../config/ui/colors';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { generateOrderId } from './OrderId';
 
 const OrderModal = ({ open, onClose }) => {
   const [orderId, setOrderId] = React.useState(null);

@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 
 const Category = () => {
   const { name } = useParams();
-  const { data } = getCategory(name);
+  const { data, isLoading } = getCategory(name);
   const dispatch = useDispatch();
 
   const addStore = (item) => {

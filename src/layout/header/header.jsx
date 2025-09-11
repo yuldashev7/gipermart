@@ -3,7 +3,6 @@ import {
   Button,
   Container,
   IconButton,
-  Skeleton,
   Stack,
   Typography,
 } from '@mui/material';
@@ -40,16 +39,6 @@ const Header = () => {
     isLoading: searchLoading,
     error,
   } = searchParams(search);
-  console.log(searchData);
-
-  if (isLoading)
-    return (
-      <>
-        <Stack mt={'120px'}>
-          <Skeleton variant="rectangular" width="100%" height={400} />
-        </Stack>
-      </>
-    );
 
   return (
     <>

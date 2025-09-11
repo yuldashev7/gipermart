@@ -213,7 +213,7 @@ const Blog = () => {
         </Box>
       </Stack>
       <Stack direction={'row'} gap={'32px'} mb={'64px'}>
-        <img src={headPhoneImg} alt="img" />
+        <img src={iPhoneImg} alt="img" />
         <Box>
           <Typography
             fontWeight={'400'}

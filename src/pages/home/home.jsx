@@ -32,15 +32,6 @@ const Home = () => {
   const { data: HomeComputerData } = GetHomeComputer();
   const { data: brandData } = getBrand();
 
-  if (isLoading)
-    return (
-      <Stack mt={'40px'} mb={'32px'}>
-        <Skeleton height={'50px'} />
-        <Skeleton animation="wave" />
-        <Skeleton animation={false} />
-      </Stack>
-    );
-
   return (
     <>
       <Box mt="80px">

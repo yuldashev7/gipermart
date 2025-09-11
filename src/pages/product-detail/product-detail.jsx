@@ -52,15 +52,6 @@ const ProductDetail = () => {
     toast.error('Xatolik');
   }
 
-  if (isLoading) {
-    return (
-      <Stack mb="50px" ml="20px">
-        <Skeleton variant="text" sx={{ fontSize: '1rem' }} />
-        <Skeleton variant="rectangular" width={300} height={435} />
-      </Stack>
-    );
-  }
-
   const allProduct = [
     ...(phones?.map((item) => ({ ...item, category: 'phone' })) || []),
     ...(computers?.map((item) => ({ ...item, category: 'computer' })) || []),
