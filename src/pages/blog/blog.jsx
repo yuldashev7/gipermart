@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import headPhoneImg from '../../assets/img/headPhone.png';
 import macBookImg from '../../assets/img/macBook.png';
-import iPhoneImg from '../../assets/img/Iphone.png';
+import iPhoneImg from '../../assets/img/iPhone.png';
 
 const Blog = () => {
   return (
