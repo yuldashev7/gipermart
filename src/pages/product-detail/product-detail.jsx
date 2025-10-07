@@ -34,11 +34,11 @@ const ProductDetail = () => {
     dispatch(addProduct(newProduct));
 
     if (newPrice) {
-      toast.success("Mahsulot Qo'shildi", {
+      toast.success('MТовар добавлен', {
         autoClose: 2000,
       });
     } else {
-      toast.error("Mahsulot Qo'shishda Xatolik", {
+      toast.error('Ошибка при добавлении товара', {
         autoClose: 2000,
       });
     }

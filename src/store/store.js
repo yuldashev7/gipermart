@@ -1,11 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import productReducer from './product-reducer';
 import { saveState, loadState } from '../config/data/storage';
-import {
-  createListenerMiddleware,
-  isAnyOf,
-  createAction,
-} from '@reduxjs/toolkit';
+import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit';
 import {
   incrementPrice,
   decrementPrice,
