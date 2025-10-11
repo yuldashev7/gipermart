@@ -18,7 +18,7 @@ import BuyIcon from '../../assets/icons/buy-icon';
 import { getBanner } from '../data/query/getQuery';
 import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
-import UserDrawer from '../../components/user-modal/user-drawer';
+import UserDrawer from '../../components/user-drawer/user-drawer';
 import { useDebounce } from '@uidotdev/usehooks';
 import { searchParams } from './query/searchParams';
 import HeaderModal from '../components/headerModal';
@@ -30,6 +30,7 @@ const Header = () => {
   };
   const [modalOpen, setModalOpen] = React.useState(false);
   const [openSearch, setOpenSearch] = React.useState(false);
+  const [openDrawer, setOpenDrawer] = React.useState(false);
   const { data, isLoading } = getBanner();
   const [userOpen, setUserOpen] = React.useState(false);
   const [search, setSearch] = React.useState('');
@@ -39,6 +40,15 @@ const Header = () => {
     isLoading: searchLoading,
     error,
   } = searchParams(search);
+
+  const handleOpenDrawer = () => {
+    const savedUser = localStorage.getItem('user');
+    if (!savedUser) {
+      setOpenDrawer(true);
+    } else {
+      shoppingPage();
+    }
+  };
 
   return (
     <>
@@ -241,7 +251,7 @@ const Header = () => {
                 </Typography>
               </Stack>
               <Stack direction="column" alignItems="center" gap="4px">
-                <IconButton onClick={shoppingPage}>
+                <IconButton onClick={handleOpenDrawer}>
                   <BuyIcon />
                 </IconButton>
                 <Typography
@@ -255,6 +265,7 @@ const Header = () => {
               </Stack>
             </Stack>
           </Stack>
+          <UserDrawer open={openDrawer} onClose={() => setOpenDrawer(false)} />
         </Container>
       </Box>
     </>

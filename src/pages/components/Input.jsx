@@ -9,6 +9,7 @@ const CustomeInput = ({
   onChange,
   withBorder = false,
   value,
+  name,
   ...props
 }) => {
   return (
@@ -36,6 +37,7 @@ const CustomeInput = ({
       placeholder={placeholder}
       onChange={onChange}
       value={value}
+      name={name}
       {...props}
     />
   );

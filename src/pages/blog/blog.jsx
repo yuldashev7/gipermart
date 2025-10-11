@@ -1,5 +1,4 @@
 import { Box, Container, Stack, Typography } from '@mui/material';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import headPhoneImg from '../../assets/img/headPhone.png';
 import macBookImg from '../../assets/img/macBook.png';

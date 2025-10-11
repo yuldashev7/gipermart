@@ -1,5 +1,3 @@
-import { Typography } from '@mui/material';
-import { COLOR } from './config/ui/colors';
 import { Route, Routes } from 'react-router-dom';
 import MainLayout from './layout/main-layout/main-layout';
 import Home from './pages/home/home';
@@ -10,6 +8,7 @@ import Order from './pages/orders/order';
 import Category from './pages/home/category/category';
 import Company from './pages/company/company';
 import Blog from './pages/blog/blog';
+import Register from './auth/register/register';
 
 function App() {
   return (
@@ -23,6 +22,7 @@ function App() {
           <Route path="category/:name" element={<Category />} />
           <Route path="company" element={<Company />} />
           <Route path="blog" element={<Blog />} />
+          <Route path="register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

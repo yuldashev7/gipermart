@@ -5,9 +5,20 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../../../store/product-reducer';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
+import UserDrawer from '../../../user-drawer/user-drawer';
 
 const HomeComputer = ({ title, price, img, brand, display, id }) => {
   const dispatch = useDispatch();
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const handleOpenDrawer = () => {
+    const savedUser = localStorage.getItem('user');
+    if (!savedUser) {
+      setOpenDrawer(true);
+    } else {
+      addStore();
+    }
+  };
 
   const addStore = () => {
     const newPrice = Number(price.split(' ').join(''));
@@ -87,7 +98,7 @@ const HomeComputer = ({ title, price, img, brand, display, id }) => {
           </Typography>
 
           <IconButton
-            onClick={addStore}
+            onClick={handleOpenDrawer}
             sx={{
               backgroundColor: COLOR['--gipermart'],
               borderRadius: '0',
@@ -103,6 +114,7 @@ const HomeComputer = ({ title, price, img, brand, display, id }) => {
           </IconButton>
         </Stack>
       </Stack>
+      <UserDrawer open={openDrawer} onClose={() => setOpenDrawer(false)} />
     </Stack>
   );
 };

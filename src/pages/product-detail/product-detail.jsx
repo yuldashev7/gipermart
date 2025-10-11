@@ -14,10 +14,13 @@ import { COLOR } from '../../config/ui/colors';
 import { addProduct } from '../../store/product-reducer';
 import { useDispatch } from 'react-redux';
 import { saveState, loadState } from '../../config/data/storage';
+import React, { useState } from 'react';
+import UserDrawer from '../../components/user-drawer/user-drawer';
 
 const ProductDetail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [openDrawer, setOpenDrawer] = React.useState(false);
   const addStore = () => {
     if (!product) return;
     const newPrice = Number(product.price.split(' ').join(''));
@@ -34,7 +37,7 @@ const ProductDetail = () => {
     dispatch(addProduct(newProduct));
 
     if (newPrice) {
-      toast.success('MТовар добавлен', {
+      toast.success('Товар добавлен', {
         autoClose: 2000,
       });
     } else {
@@ -49,7 +52,7 @@ const ProductDetail = () => {
   const { id } = useParams();
 
   if (error) {
-    toast.error('Xatolik');
+    toast.error('Ошибка при добавлении товара');
   }
 
   const allProduct = [
@@ -59,8 +62,17 @@ const ProductDetail = () => {
   const product = allProduct.find((item) => String(item.id) === String(id));
 
   if (!product) {
-    return toast.error('Maxsulot Topilmadi');
+    return toast.error('Товар не найден');
   }
+
+  const handleOpenDrawer = () => {
+    const savedUser = localStorage.getItem('user');
+    if (!savedUser) {
+      setOpenDrawer(true);
+    } else {
+      addStore(product);
+    }
+  };
 
   return (
     <Container disableGutters>
@@ -352,7 +364,7 @@ const ProductDetail = () => {
             {product.price} Сум
           </Typography>
           <IconButton
-            onClick={() => addStore(product)}
+            onClick={handleOpenDrawer}
             style={{
               backgroundColor: COLOR['--gipermart'],
               borderRadius: '0',
@@ -376,6 +388,7 @@ const ProductDetail = () => {
           </IconButton>
         </Stack>
       </Stack>
+      <UserDrawer open={openDrawer} onClose={() => setOpenDrawer(false)} />
     </Container>
   );
 };

@@ -1,5 +1,4 @@
 import { Stack, Typography } from '@mui/material';
-import React from 'react';
 import { COLOR } from '../../config/ui/colors';
 
 const PhoneTablet = ({ img, title, rame, price }) => {

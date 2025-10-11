@@ -6,11 +6,23 @@ import { addProduct } from '../../../store/product-reducer';
 import { useDispatch } from 'react-redux';
 import { COLOR } from '../../../config/ui/colors';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
+import UserDrawer from '../../../components/user-drawer/user-drawer';
 
 const Category = () => {
   const { name } = useParams();
   const { data, isLoading } = getCategory(name);
   const dispatch = useDispatch();
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const handleOpenDrawer = () => {
+    const savedUser = localStorage.getItem('user');
+    if (!savedUser) {
+      setOpenDrawer(true);
+    } else {
+      addStore(item);
+    }
+  };
 
   const addStore = (item) => {
     const newPrice = Number(item.price.split(' ').join(''));
@@ -79,7 +91,7 @@ const Category = () => {
                     {item.price} Сум
                   </Typography>
                   <IconButton
-                    onClick={() => addStore(item)}
+                    onClick={handleOpenDrawer}
                     sx={{
                       backgroundColor: COLOR['--gipermart'],
                       borderRadius: 1,
@@ -98,6 +110,7 @@ const Category = () => {
           </Grid>
         ))}
       </Grid>
+      <UserDrawer open={openDrawer} onClose={() => setOpenDrawer(false)} />
     </Container>
   );
 };

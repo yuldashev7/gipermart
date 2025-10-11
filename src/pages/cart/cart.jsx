@@ -1,115 +1,154 @@
 import { useSelector } from 'react-redux';
-import { Button, Stack, Typography } from '@mui/material';
+import { Box, Button, Stack, Typography } from '@mui/material';
 import Shopping from '../../components/shopping/shopping';
 import { Link } from 'react-router-dom';
 import { formatter } from '../../config/ui/summation-price';
 import { COLOR } from '../../config/ui/colors';
 import { toast } from 'react-toastify';
+import CartEmpty from '../../assets/icons/cart-empty';
 
 const Cart = () => {
   const { productList, totalPrice } = useSelector((store) => store.product);
 
   if (!productList.length) {
     return (
-      <Stack
-        mt="58px"
-        direction="row"
-        justifyContent="space-between"
-        px="20px"
-        mb="20px"
-        bgcolor={'#fff'}
-        py={'12px'}
-      >
-        <Link style={{ textDecoration: 'none' }}>
-          <Typography
-            fontWeight="400"
-            fontSize="16px"
-            lineHeight="150%"
-            color="#333"
-            sx={{
-              transition: 'color 0.3s ease',
-              '&:hover': { color: 'red' },
-            }}
-          >
-            Смартфоны и планшеты
-          </Typography>
-        </Link>
+      <>
+        <Stack
+          mt="58px"
+          direction="row"
+          justifyContent="space-between"
+          px="20px"
+          mb="20px"
+          bgcolor={'#fff'}
+          py={'12px'}
+        >
+          <Link style={{ textDecoration: 'none' }}>
+            <Typography
+              fontWeight="400"
+              fontSize="16px"
+              lineHeight="150%"
+              color="#333"
+              sx={{
+                transition: 'color 0.3s ease',
+                '&:hover': { color: 'red' },
+              }}
+            >
+              Смартфоны и планшеты
+            </Typography>
+          </Link>
+          <Link style={{ textDecoration: 'none' }}>
+            <Typography
+              fontWeight="400"
+              fontSize="16px"
+              lineHeight="150%"
+              color="#333"
+              sx={{
+                transition: 'color 0.3s ease',
+                '&:hover': { color: 'red' },
+              }}
+            >
+              Ноутбуки, планшеты и компьютеры
+            </Typography>
+          </Link>
+          <Link style={{ textDecoration: 'none' }}>
+            <Typography
+              fontWeight="400"
+              fontSize="16px"
+              lineHeight="150%"
+              color="#333"
+              sx={{
+                transition: 'color 0.3s ease',
+                '&:hover': { color: 'red' },
+              }}
+            >
+              Техника для дома
+            </Typography>
+          </Link>
+          <Link style={{ textDecoration: 'none' }}>
+            <Typography
+              fontWeight="400"
+              fontSize="16px"
+              lineHeight="150%"
+              color="#333"
+              sx={{
+                transition: 'color 0.3s ease',
+                '&:hover': { color: 'red' },
+              }}
+            >
+              Игры и развлечения
+            </Typography>
+          </Link>
+          <Link style={{ textDecoration: 'none' }}>
+            <Typography
+              fontWeight="400"
+              fontSize="16px"
+              lineHeight="150%"
+              color="#333"
+              sx={{
+                transition: 'color 0.3s ease',
+                '&:hover': { color: 'red' },
+              }}
+            >
+              Телевизоры, Аудио-видео, Hi-Fi
+            </Typography>
+          </Link>
+          <Link style={{ textDecoration: 'none' }}>
+            <Typography
+              fontWeight="400"
+              fontSize="16px"
+              lineHeight="150%"
+              color="#333"
+              sx={{
+                transition: 'color 0.3s ease',
+                '&:hover': { color: 'red' },
+              }}
+            >
+              Фото и видеотехника
+            </Typography>
+          </Link>
+        </Stack>
 
-        <Link style={{ textDecoration: 'none' }}>
+        <Stack
+          alignItems={'center'}
+          textAlign={'center'}
+          sx={{
+            height: '100%',
+            textAlign: 'center',
+          }}
+        >
+          <CartEmpty />
+        </Stack>
+        <Box textAlign="center" py={5}>
+          <Typography variant="h6" color="text.secondary">
+            Ваша корзина пока пуста.
+          </Typography>
           <Typography
-            fontWeight="400"
-            fontSize="16px"
-            lineHeight="150%"
-            color="#333"
-            sx={{
-              transition: 'color 0.3s ease',
-              '&:hover': { color: 'red' },
+            style={{
+              marginBottom: '15px',
+              marginTop: '10px',
             }}
           >
-            Ноутбуки, планшеты и компьютеры
+            Начните с главной страницы — вы можете найти нужный товар через
+            поиск или просмотреть подборки.
           </Typography>
-        </Link>
 
-        <Link style={{ textDecoration: 'none' }}>
-          <Typography
-            fontWeight="400"
-            fontSize="16px"
-            lineHeight="150%"
-            color="#333"
-            sx={{
-              transition: 'color 0.3s ease',
-              '&:hover': { color: 'red' },
+          <Link
+            to={'/'}
+            style={{
+              textDecoration: 'none',
+              backgroundColor: '#f3f3f3',
+              color: '#000',
+              paddingTop: '4px',
+              paddingBottom: '4px',
+              paddingLeft: '6px',
+              paddingRight: '6px',
+              borderRadius: '4px',
             }}
           >
-            Техника для дома
-          </Typography>
-        </Link>
-
-        <Link style={{ textDecoration: 'none' }}>
-          <Typography
-            fontWeight="400"
-            fontSize="16px"
-            lineHeight="150%"
-            color="#333"
-            sx={{
-              transition: 'color 0.3s ease',
-              '&:hover': { color: 'red' },
-            }}
-          >
-            Игры и развлечения
-          </Typography>
-        </Link>
-
-        <Link style={{ textDecoration: 'none' }}>
-          <Typography
-            fontWeight="400"
-            fontSize="16px"
-            lineHeight="150%"
-            color="#333"
-            sx={{
-              transition: 'color 0.3s ease',
-              '&:hover': { color: 'red' },
-            }}
-          >
-            Телевизоры, Аудио-видео, Hi-Fi
-          </Typography>
-        </Link>
-
-        <Link style={{ textDecoration: 'none' }}>
-          <Typography
-            fontWeight="400"
-            fontSize="16px"
-            lineHeight="150%"
-            color="#333"
-            sx={{
-              transition: 'color 0.3s ease',
-              '&:hover': { color: 'red' },
-            }}
-          >
-            Фото и видеотехника
-          </Typography>
-        </Link>
-      </Stack>
+            Главная страница
+          </Link>
+        </Box>
+      </>
     );
   }
 
@@ -148,7 +187,6 @@ const Cart = () => {
           </Link>
         ))}
       </Stack>
-
       <Stack
         direction="row"
         alignItems="center"
@@ -188,7 +226,6 @@ const Cart = () => {
           <Shopping key={item.id} product={item} />
         ))}
       </Stack>
-
       <Stack pb="30px" alignItems="center" textAlign={'center'}>
         <Link
           to={productList.length ? '/order' : '#'}

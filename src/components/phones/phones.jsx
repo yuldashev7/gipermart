@@ -5,6 +5,8 @@ import { COLOR } from '../../config/ui/colors';
 import { addProduct } from '../../store/product-reducer';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import { useEffect, useState } from 'react';
+import UserDrawer from '../user-drawer/user-drawer';
 
 const Phones = ({
   img,
@@ -15,6 +17,8 @@ const Phones = ({
   id,
 }) => {
   const dispatch = useDispatch();
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   const addStore = () => {
     const newPrice = Number(price.split(' ').join(''));
@@ -25,6 +29,15 @@ const Phones = ({
       toast.success('Товар добавлен');
     } else {
       toast.error('Ошибка при добавлении товара');
+    }
+  };
+
+  const handleOpenDrawer = () => {
+    const savedUser = localStorage.getItem('user');
+    if (!savedUser) {
+      setDrawerOpen(true);
+    } else {
+      addStore();
     }
   };
 
@@ -64,7 +77,7 @@ const Phones = ({
         </Typography>
 
         <IconButton
-          onClick={addStore}
+          onClick={handleOpenDrawer}
           sx={{
             backgroundColor: COLOR['--gipermart'],
             borderRadius: '0',
@@ -77,6 +90,7 @@ const Phones = ({
           <PhoneBuyIcon />
         </IconButton>
       </Stack>
+      <UserDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </Stack>
   );
 };
