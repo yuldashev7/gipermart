@@ -18,7 +18,7 @@ const HeaderModal = ({ open, onClose }) => {
         },
       }}
     >
-      <Stack direction="row" p={3} gap={'92px'}>
+      <Stack direction="row" p={3} gap={'92px'} textAlign={'center'}>
         {data?.slice(0, 3).map((item) => (
           <Stack key={item.id}>
             <Stack
@@ -31,16 +31,21 @@ const HeaderModal = ({ open, onClose }) => {
               px={'16px'}
               mb={'16px'}
             >
-              <img
-                src={item.img}
-                alt={item.text}
-                style={{ width: '96px', height: '96px' }}
-              />
               <Link
                 to={`/category/${item.name}`}
                 onClick={() => onClose(false)}
-                style={{ textDecoration: 'none', maxWidth: '128px' }}
+                style={{
+                  textDecoration: 'none',
+                  width: '250px',
+                  textAlign: 'center',
+                }}
               >
+                <img
+                  src={item.img}
+                  alt={item.text}
+                  style={{ width: '96px', height: '96px' }}
+                />
+
                 <Typography
                   sx={{
                     fontWeight: 500,
@@ -212,7 +217,7 @@ const HeaderModal = ({ open, onClose }) => {
           </Stack>
         ))}
       </Stack>
-      <Stack direction="row" p={3} gap={'92px'}>
+      <Stack direction="row" p={3} gap={'92px'} textAlign={'center'}>
         {data?.slice(3, 6).map((item) => (
           <Stack key={item.id}>
             <Stack
@@ -225,16 +230,21 @@ const HeaderModal = ({ open, onClose }) => {
               px={'16px'}
               mb={'16px'}
             >
-              <img
-                src={item.img}
-                alt={item.text}
-                style={{ width: '96px', height: '96px' }}
-              />
               <Link
                 to={`/category/${item.name}`}
-                style={{ textDecoration: 'none' }}
+                style={{
+                  textDecoration: 'none',
+                  width: '250px',
+                  textAlign: 'center',
+                }}
                 onClick={() => onClose(false)}
               >
+                <img
+                  src={item.img}
+                  alt={item.text}
+                  style={{ width: '96px', height: '96px' }}
+                />
+
                 <Typography
                   fontWeight={'500'}
                   fontSize={'16px'}
@@ -242,6 +252,8 @@ const HeaderModal = ({ open, onClose }) => {
                   letterSpacing={'0.1em'}
                   color="#333"
                   maxWidth={'128px'}
+                  ml={'auto'}
+                  mr={'auto'}
                   sx={{
                     transition: 'color 0.3s ease',
                     '&:hover': { color: 'red' },

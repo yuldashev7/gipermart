@@ -85,7 +85,7 @@ const ProductDetail = () => {
         bgcolor={'#fff'}
         py={'12px'}
       >
-        <Link style={{ textDecoration: 'none' }}>
+        <Link style={{ textDecoration: 'none' }} to={'/category/phones'}>
           <Typography
             fontWeight="400"
             fontSize="16px"
@@ -100,7 +100,7 @@ const ProductDetail = () => {
           </Typography>
         </Link>
 
-        <Link style={{ textDecoration: 'none' }}>
+        <Link style={{ textDecoration: 'none' }} to={'/category/computers'}>
           <Typography
             fontWeight="400"
             fontSize="16px"
@@ -115,7 +115,7 @@ const ProductDetail = () => {
           </Typography>
         </Link>
 
-        <Link style={{ textDecoration: 'none' }}>
+        <Link style={{ textDecoration: 'none' }} to={'/category/washingM'}>
           <Typography
             fontWeight="400"
             fontSize="16px"
