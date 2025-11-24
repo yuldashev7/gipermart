@@ -1,14 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit';
-import productReducer from './product-reducer';
-import { saveState, loadState } from '../config/data/storage';
-import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit';
 import {
   incrementPrice,
   decrementPrice,
   addProduct,
   removeProduct,
 } from './product-reducer';
+import productReducer from './product-reducer';
+import { configureStore } from '@reduxjs/toolkit';
 import { calculateTotalPrice } from './product-reducer';
+import { saveState, loadState } from '../config/data/storage';
+import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit';
 
 const productMiddleware = createListenerMiddleware();
 

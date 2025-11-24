@@ -7,16 +7,16 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { formatter } from '../../config/ui/summation-price';
-import { COLOR } from '../../config/ui/colors';
-import CustomeInput from '../components/Input';
 import React from 'react';
+import OrderModal from './orderModal';
+import { Link } from 'react-router-dom';
 import PayMe from '../../assets/icons/payme';
 import Click from '../../assets/icons/click';
+import { COLOR } from '../../config/ui/colors';
+import CustomeInput from '../components/Input';
+import { useDispatch, useSelector } from 'react-redux';
+import { formatter } from '../../config/ui/summation-price';
 import { removeProduct } from '../../store/product-reducer';
-import OrderModal from './orderModal';
 
 const Order = () => {
   const { productList, totalPrice } = useSelector((store) => store.product);

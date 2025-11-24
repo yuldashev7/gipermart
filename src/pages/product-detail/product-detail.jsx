@@ -1,29 +1,28 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useGetPhone } from '../home/query/getPhones';
-import { toast } from 'react-toastify';
 import {
   Container,
   IconButton,
   Rating,
-  Skeleton,
   Stack,
   Typography,
 } from '@mui/material';
-import { getComputer } from '../../components/home/computer/query/getComputer';
-import { COLOR } from '../../config/ui/colors';
-import { addProduct } from '../../store/product-reducer';
+import React from 'react';
+import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
+import { COLOR } from '../../config/ui/colors';
+import { useGetPhone } from '../home/query/getPhones';
+import { addProduct } from '../../store/product-reducer';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { saveState, loadState } from '../../config/data/storage';
-import React, { useState } from 'react';
 import UserDrawer from '../../components/user-drawer/user-drawer';
+import { getComputer } from '../../components/home/computer/query/getComputer';
 
 const ProductDetail = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [openDrawer, setOpenDrawer] = React.useState(false);
   const addStore = () => {
     if (!product) return;
     const newPrice = Number(product.price.split(' ').join(''));
+
     const newProduct = {
       id: product.id,
       title: product.title,

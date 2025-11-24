@@ -1,5 +1,5 @@
-import { request } from '../../../config/data/request';
 import { useQuery } from '@tanstack/react-query';
+import { request } from '../../../config/data/request';
 
 export const useGetPhone = () => {
   return useQuery({

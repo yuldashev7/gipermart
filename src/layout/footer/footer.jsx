@@ -1,14 +1,14 @@
-import { Container, Stack, Typography } from '@mui/material';
-import footerLogo from '../../assets/svg/footer.svg';
-import facebookLogo from '../../assets/svg/facebook.svg';
 import okLogo from '../../assets/svg/ok.svg';
 import vkLogo from '../../assets/svg/vk.svg';
-import youTubeLogo from '../../assets/svg/you-tube.svg';
-import instagramLogo from '../../assets/svg/instagram.svg';
 import { Link, NavLink } from 'react-router-dom';
+import humoLogo from '../../assets/svg/humo.svg';
 import payMeLogo from '../../assets/svg/payme.svg';
 import uzCardLogo from '../../assets/svg/uzcard.svg';
-import humoLogo from '../../assets/svg/humo.svg';
+import footerLogo from '../../assets/svg/footer.svg';
+import youTubeLogo from '../../assets/svg/you-tube.svg';
+import facebookLogo from '../../assets/svg/facebook.svg';
+import instagramLogo from '../../assets/svg/instagram.svg';
+import { Container, Stack, Typography } from '@mui/material';
 
 const Footer = () => {
   return (

@@ -1,5 +1,4 @@
 import { TextField } from '@mui/material';
-import React from 'react';
 import { COLOR } from '../../config/ui/colors';
 
 const CustomeInput = ({

@@ -1,11 +1,10 @@
-import { Dialog, Grid, Stack, Typography } from '@mui/material';
-import React from 'react';
-import { getCatalog } from './query/getCatalog';
 import { Link } from 'react-router-dom';
 import { COLOR } from '../../config/ui/colors';
+import { getCatalog } from './query/getCatalog';
+import { Dialog, Stack, Typography } from '@mui/material';
 
 const HeaderModal = ({ open, onClose }) => {
-  const { data, isLoading, error } = getCatalog();
+  const { data } = getCatalog();
 
   return (
     <Dialog

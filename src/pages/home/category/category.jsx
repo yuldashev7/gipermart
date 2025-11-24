@@ -1,18 +1,18 @@
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getCategory } from './query/getCategory';
-import { Container, Grid, IconButton, Stack, Typography } from '@mui/material';
-import PhoneBuyIcon from '../../../assets/icons/phone-buy-icon';
-import { addProduct } from '../../../store/product-reducer';
-import { useDispatch } from 'react-redux';
 import { COLOR } from '../../../config/ui/colors';
-import { toast } from 'react-toastify';
-import { useState } from 'react';
+import { addProduct } from '../../../store/product-reducer';
+import PhoneBuyIcon from '../../../assets/icons/phone-buy-icon';
 import UserDrawer from '../../../components/user-drawer/user-drawer';
+import { Container, Grid, IconButton, Stack, Typography } from '@mui/material';
 
 const Category = () => {
   const { name } = useParams();
-  const { data, isLoading } = getCategory(name);
   const dispatch = useDispatch();
+  const { data } = getCategory(name);
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const handleOpenDrawer = () => {

@@ -1,8 +1,8 @@
-import { IconButton, Stack, Typography } from '@mui/material';
-import CustomeInput from '../../pages/components/Input';
-import { COLOR } from '../../config/ui/colors';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { COLOR } from '../../config/ui/colors';
+import CustomeInput from '../../pages/components/Input';
+import { IconButton, Stack, Typography } from '@mui/material';
 
 const Register = ({ setIsRegister, onClose }) => {
   const [form, setForm] = useState({

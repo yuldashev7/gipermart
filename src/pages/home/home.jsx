@@ -1,27 +1,20 @@
-import { getCatalog } from '../../components/query/getQuey';
-import {
-  Box,
-  Container,
-  Grid,
-  Skeleton,
-  Stack,
-  Typography,
-} from '@mui/material';
-import HomeSwiper from '../../components/home/swiper/homeSwiper';
-import PhoneSwiper from '../../components/phones/phoneSwiper';
-import BannerSwiper from '../../components/swiper/swiper';
-import { getBanner } from '../../layout/data/query/getQuery';
+import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import { COLOR } from '../../config/ui/colors';
 import Ads from '../../components/home/ads/ads';
-import { GetAds } from '../../components/home/ads/query/getAds';
-import { getPhoneTablet } from '../../components/phone-tablet/query/getPhoneTablet';
-import PhoneTablet from '../../components/phone-tablet/phone-tablet';
-import { getComputer } from '../../components/home/computer/query/getComputer';
-import GetComputer from '../../components/home/computer/computer';
-import { GetHomeComputer } from '../../components/home/computer/homeComputer/query/homeComputer';
-import HomeComputer from '../../components/home/computer/homeComputer/homeComputer';
-import { getBrand } from '../../components/home/brands/query/getBrand';
 import Brands from '../../components/home/brands/brands';
+import BannerSwiper from '../../components/swiper/swiper';
+import { getCatalog } from '../../components/query/getQuey';
+import { getBanner } from '../../layout/data/query/getQuery';
+import PhoneSwiper from '../../components/phones/phoneSwiper';
+import { GetAds } from '../../components/home/ads/query/getAds';
+import HomeSwiper from '../../components/home/swiper/homeSwiper';
+import GetComputer from '../../components/home/computer/computer';
+import PhoneTablet from '../../components/phone-tablet/phone-tablet';
+import { getBrand } from '../../components/home/brands/query/getBrand';
+import { getComputer } from '../../components/home/computer/query/getComputer';
+import HomeComputer from '../../components/home/computer/homeComputer/homeComputer';
+import { getPhoneTablet } from '../../components/phone-tablet/query/getPhoneTablet';
+import { GetHomeComputer } from '../../components/home/computer/homeComputer/query/homeComputer';
 
 const Home = () => {
   const { isLoading } = getCatalog();

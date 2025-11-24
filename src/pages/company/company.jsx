@@ -1,7 +1,6 @@
-import { Container, Stack, Typography } from '@mui/material';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { COLOR } from '../../config/ui/colors';
+import { Container, Stack, Typography } from '@mui/material';
 
 const Company = () => {
   return (

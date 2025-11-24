@@ -1,14 +1,14 @@
-import { Route, Routes } from 'react-router-dom';
-import MainLayout from './layout/main-layout/main-layout';
-import Home from './pages/home/home';
-import ProductDetail from './pages/product-detail/product-detail';
-import Cart from './pages/cart/cart';
-import NotFound from './pages/not-found/not-found';
-import Order from './pages/orders/order';
-import Category from './pages/home/category/category';
-import Company from './pages/company/company';
 import Blog from './pages/blog/blog';
+import Home from './pages/home/home';
+import Cart from './pages/cart/cart';
+import Order from './pages/orders/order';
+import Company from './pages/company/company';
 import Register from './auth/register/register';
+import { Route, Routes } from 'react-router-dom';
+import NotFound from './pages/not-found/not-found';
+import Category from './pages/home/category/category';
+import MainLayout from './layout/main-layout/main-layout';
+import ProductDetail from './pages/product-detail/product-detail';
 
 function App() {
   return (

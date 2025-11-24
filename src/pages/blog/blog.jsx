@@ -1,8 +1,8 @@
-import { Box, Container, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import headPhoneImg from '../../assets/img/headPhone.png';
-import macBookImg from '../../assets/img/macBook.png';
 import iPhoneImg from '../../assets/img/iPhone.png';
+import macBookImg from '../../assets/img/macBook.png';
+import headPhoneImg from '../../assets/img/headPhone.png';
+import { Box, Container, Stack, Typography } from '@mui/material';
 
 const Blog = () => {
   return (

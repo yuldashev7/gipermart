@@ -6,34 +6,35 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import headerLogo from '../../assets/svg/header.svg';
+import React from 'react';
 import { COLOR } from '../../config/ui/colors';
-import TopHeaderTel from '../../assets/icons/topHeaderTel';
-import HeaderHamburger from '../../assets/icons/headerHamburger';
-import CustomeInput from '../../pages/components/Input';
-import SearchIcon from '../../assets/icons/search-icon';
-import UserIcon from '../../assets/icons/user-icon';
-import HeartIcon from '../../assets/icons/heart-icon';
+import { useDebounce } from '@uidotdev/usehooks';
 import BuyIcon from '../../assets/icons/buy-icon';
 import { getBanner } from '../data/query/getQuery';
-import { Link, useNavigate } from 'react-router-dom';
-import React from 'react';
-import UserDrawer from '../../components/user-drawer/user-drawer';
-import { useDebounce } from '@uidotdev/usehooks';
-import { searchParams } from './query/searchParams';
 import HeaderModal from '../components/headerModal';
+import UserIcon from '../../assets/icons/user-icon';
+import { searchParams } from './query/searchParams';
+import headerLogo from '../../assets/svg/header.svg';
+import { Link, useNavigate } from 'react-router-dom';
+import HeartIcon from '../../assets/icons/heart-icon';
+import CustomeInput from '../../pages/components/Input';
+import SearchIcon from '../../assets/icons/search-icon';
+import TopHeaderTel from '../../assets/icons/topHeaderTel';
+import HeaderHamburger from '../../assets/icons/headerHamburger';
+import UserDrawer from '../../components/user-drawer/user-drawer';
 
 const Header = () => {
   const navigate = useNavigate();
   const shoppingPage = () => {
     navigate('/cart');
   };
+
+  const { data, isLoading } = getBanner();
+  const [search, setSearch] = React.useState('');
+  const [userOpen, setUserOpen] = React.useState(false);
   const [modalOpen, setModalOpen] = React.useState(false);
   const [openSearch, setOpenSearch] = React.useState(false);
   const [openDrawer, setOpenDrawer] = React.useState(false);
-  const { data, isLoading } = getBanner();
-  const [userOpen, setUserOpen] = React.useState(false);
-  const [search, setSearch] = React.useState('');
   const debounceValue = useDebounce(search, 500);
   const {
     data: searchData,

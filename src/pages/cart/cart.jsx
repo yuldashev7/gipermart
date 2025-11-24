@@ -1,11 +1,11 @@
-import { useSelector } from 'react-redux';
-import { Box, Button, Stack, Typography } from '@mui/material';
-import Shopping from '../../components/shopping/shopping';
-import { Link } from 'react-router-dom';
-import { formatter } from '../../config/ui/summation-price';
-import { COLOR } from '../../config/ui/colors';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { COLOR } from '../../config/ui/colors';
 import CartEmpty from '../../assets/icons/cart-empty';
+import Shopping from '../../components/shopping/shopping';
+import { formatter } from '../../config/ui/summation-price';
+import { Box, Button, Stack, Typography } from '@mui/material';
 
 const Cart = () => {
   const { productList, totalPrice } = useSelector((store) => store.product);

@@ -1,8 +1,8 @@
-import { Dialog, IconButton, Stack, Typography } from '@mui/material';
+import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { COLOR } from '../../config/ui/colors';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { Dialog, IconButton, Stack, Typography } from '@mui/material';
 
 const OrderModal = ({ open, onClose }) => {
   const [orderId, setOrderId] = React.useState(null);
